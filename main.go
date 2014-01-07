@@ -9,6 +9,8 @@ import (
 )
 
 func main() {
+	flag.Usage = usage
+
 	flag.Parse()
 
 	filters := flag.Args()
@@ -31,4 +33,9 @@ func main() {
 
 		fmt.Print(entry, "\n")
 	}
+}
+
+func usage() {
+	fmt.Fprintf(os.Stderr, "Usage: lq [filter keys...]\n")
+	flag.PrintDefaults()
 }
